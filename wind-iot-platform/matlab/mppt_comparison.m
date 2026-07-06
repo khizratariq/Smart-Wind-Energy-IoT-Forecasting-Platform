@@ -6,11 +6,11 @@ forecast_wind = data.forecasted_wind_speed;
 assignin('base', 'actual_wind_input', [time, WindSpeed]);
 assignin('base', 'forecast_wind_input', [time, forecast_wind]);
 
-simOut_baseline = sim('mymodel');
+simOut_baseline = sim('baseline_model');
 power_baseline = simOut_baseline.P_baseline.Data;
 time = simOut_baseline.P_baseline.Time;
 
-simOut_forecast = sim('wavelet_model');
+simOut_forecast = sim('forecast_model');
 power_forecast = simOut_forecast.P_forecast.Data;
 
 energy_baseline = trapz(time, power_baseline);
@@ -20,7 +20,7 @@ fprintf('Improvement: %.2f%%\n', improvement_pct);
 
 writetable(table(time, power_baseline, power_forecast, ...
     'VariableNames', {'time','power_baseline','power_forecast'}), ...
-    'mppt_timeseries_results.csv');
+    'mppt_results.csv');
 
 writetable(table(energy_baseline, energy_forecast, improvement_pct), ...
     'mppt_summary_results.csv');
