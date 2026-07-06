@@ -209,5 +209,5 @@ The CSV-based publisher (`simulation/mqtt\_publisher.py`) replicates the exact M
 
 MIT License — free to use, modify, and distribute with attribution.
 Owner: Khizra Tariq 
-  Contact: khizra.tariq4555@gmail.com
+                    Contact: khizra.tariq4555@gmail.com
 
