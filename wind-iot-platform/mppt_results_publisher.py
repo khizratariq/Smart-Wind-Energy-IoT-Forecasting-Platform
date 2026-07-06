@@ -9,9 +9,9 @@ from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 url    = "http://localhost:8086"
-token  = "mdQBhAfUy9yRX5giPOZBLEH2Rsj9DWluNKKS7E8XM1H50_WgOc-yEnCqOnZMn0yotv2WH5bOuoX46_Ygo7oc6A=="
-org    = "wind-iot"
-bucket = "turbine-data"
+token  = "YOUR\_INFLUXDB\_TOKEN"
+org    = "YOUR\_ORG\_NAME"
+bucket = "turbine-data""
 
 client = InfluxDBClient(url=url, token=token, org=org)
 write_api = client.write_api(write_options=SYNCHRONOUS)
