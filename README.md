@@ -2,23 +2,17 @@
 
 An end-to-end IoT and machine learning platform for real-time wind speed monitoring, deep learning-based forecasting, and forecast-assisted MPPT optimization, built to demonstrate a complete data pipeline from sensor hardware to live analytics dashboard.
 
-\---
-
 ## Demo
 
 \[Dashboard Demo]
 
 > Live dashboard showing: actual vs forecasted wind speed (left), baseline vs forecast-assisted MPPT power output (bottom left), energy capture comparison (top right), and cumulative improvement % (bottom right).
 
-\---
-
 ## Key Result
 
 > Forecast-assisted MPPT captured \*\*2.21% more energy\*\* than a purely reactive baseline controller on the same wind dataset.
 
 While 2.21% may seem modest, at the scale of a commercial wind farm (e.g. 9 MW), this translates to meaningful additional energy yield over an operating year — demonstrating the practical value of integrating short-term forecasting into turbine control.
-
-\---
 
 ## Architecture
 
@@ -66,8 +60,6 @@ While 2.21% may seem modest, at the scale of a commercial wind farm (e.g. 9 MW),
    → Updates Grafana MPPT panels progressively
 ```
 
-\---
-
 ## Tech Stack
 
 |Layer|Technology|
@@ -80,8 +72,6 @@ While 2.21% may seem modest, at the scale of a commercial wind farm (e.g. 9 MW),
 |Dashboard|Grafana 13|
 |Infrastructure|Docker|
 |Language|Python 3.13, C++ (Arduino/ESP32)|
-
-\---
 
 ## Project Structure
 
@@ -100,8 +90,6 @@ wind-iot-platform/
 ├── dashboard/
 │   └── wind\_iq\_dashboard.json    ← Grafana dashboard export (import to reproduce)
 ```
-
-\---
 
 ## Hardware Setup
 
@@ -130,8 +118,6 @@ Anemometer Signal →  ESP32 GPIO 34
 
 Update `CALIBRATION\_FACTOR` in `esp32\_wind.ino` to match your anemometer's datasheet.
 Default: `0.667` (corresponds to 1 Hz = 2.4 km/h, a common cup anemometer spec).
-
-\---
 
 ## How to Run
 
@@ -191,8 +177,6 @@ python run\_mppt\_study.py
 
 This runs offline forecast → MATLAB/Simulink comparison → streams results to InfluxDB.
 
-\---
-
 ## Model Details
 
 **Architecture:** LSTM (Long Short-Term Memory)
@@ -201,9 +185,6 @@ This runs offline forecast → MATLAB/Simulink comparison → streams results to
 **Training data:** Public wind turbine SCADA dataset (15-minute interval readings)
 **Framework:** TensorFlow / Keras
 **Training environment:** Google Colab (GPU)
-
-
-\---
 
 ## MPPT Study
 
@@ -218,17 +199,14 @@ Two controller strategies were compared on the same wind speed dataset using a D
 
 The MPPT comparison runs offline using `run\_mppt\_study.py` and results are streamed progressively to Grafana to simulate a real-time analysis view.
 
-\---
-
 ## Simulation Mode (No Hardware Required)
 
 The CSV-based publisher (`simulation/mqtt\_publisher.py`) replicates the exact MQTT message format produced by the ESP32 firmware, streaming rows from a real wind SCADA dataset at configurable intervals. The rest of the pipeline requires **zero modification** to switch between simulation and hardware modes.
 
 > The dashboard demo was recorded using simulation mode on a public wind turbine SCADA dataset. The ESP32 firmware produces an identical message format — the downstream pipeline is hardware-agnostic by design.
 
-\---
-
 ## License
 
 MIT License — free to use, modify, and distribute with attribution.
+Owner: Khizra Tariq Contact: khizra.tariq4555@gmail.com
 
