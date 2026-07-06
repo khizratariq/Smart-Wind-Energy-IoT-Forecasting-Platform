@@ -6,13 +6,13 @@ An end-to-end IoT and machine learning platform for real-time wind speed monitor
 
 \[Dashboard Demo]
 
-> Live dashboard showing: actual vs forecasted wind speed (left), baseline vs forecast-assisted MPPT power output (bottom left), energy capture comparison (top right), and cumulative improvement % (bottom right).
+> *Live dashboard showing:* actual vs forecasted wind speed (left), baseline vs forecast-assisted MPPT power output (bottom left), energy capture comparison (top right), and cumulative improvement % (bottom right).
 
 ## Key Result
 
-> Forecast-assisted MPPT captured \*\*2.21% more energy\*\* than a purely reactive baseline controller on the same wind dataset.
+> Forecast-assisted MPPT captured *2.2%* more energy than a purely reactive baseline controller on the same wind dataset.
 
-While 2.21% may seem modest, at the scale of a commercial wind farm (e.g. 9 MW), this translates to meaningful additional energy yield over an operating year — demonstrating the practical value of integrating short-term forecasting into turbine control.
+While 2.2% may seem modest, at the scale of a commercial wind farm (e.g. 9 MW), this translates to meaningful additional energy yield over an operating year — demonstrating the practical value of integrating short-term forecasting into turbine control.
 
 ## Architecture
 
